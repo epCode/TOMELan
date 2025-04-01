@@ -4,6 +4,22 @@ tomeui = {}
 
 -- Element: {type = "button/label/image/etc", pos = {x=0,y=0}, size = {x=2,y=1}}
 
+function tomeui.statchanger(def)
+  local x,y = def.pos.x, def.pos.y
+  local formspec =
+  "style["..def.id.."_down;bgimg=blank.png;border=false]"..
+  "style["..def.id.."_up;bgimg=blank.png;border=false]"..
+  "image_button["..(x-0.5)..","..y..";1,1;tomeui_arrow_button_left.png;"..def.id.."_down;]"..
+  "image_button["..(x+0.5)..","..y..";1,1;tomeui_arrow_button.png;"..def.id.."_up;]"..
+  "image["..(x-5)..","..y..";4.8,1;tomecharactercreation_"..def.id..".png]"..
+  "style_type[label;font_size=20]"..
+  "label["..(x+0.08)..","..(y+0.17)..";"..def.value.."]"..
+  "style_type[label;font_size=]"
+
+
+  return formspec
+end
+
 function tomeui.style(element)
 
   local image = "tomeui_button_default.png"
